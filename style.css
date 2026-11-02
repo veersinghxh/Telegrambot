@@ -1,0 +1,396 @@
+
+/* =================================
+   GLOBAL RESET
+================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #100b18;
+    color: white;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+}
+
+
+/* =================================
+   MAIN APP
+================================= */
+
+.app {
+    width: 100%;
+    max-width: 480px;
+    height: min(96dvh, 850px);
+    min-height: 450px;
+
+    background: #1b1425;
+    border: 1px solid #49304e;
+    border-radius: 22px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+/* =================================
+   HEADER
+================================= */
+
+.header {
+    padding: 15px;
+    background: #291a35;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    border-bottom: 1px solid #49304e;
+    flex-shrink: 0;
+}
+
+/* GIRL PROFILE IMAGE */
+
+.avatar {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    border: 2px solid #ff4c9a;
+    box-shadow: 0 0 12px #ff4c9a80;
+
+    flex-shrink: 0;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.header h3 {
+    font-size: 18px;
+}
+
+.status {
+    color: #67e9a3;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+
+/* =================================
+   CHAT BACKGROUND IMAGE
+================================= */
+
+#chat {
+    flex: 1;
+    min-height: 0;
+
+    overflow-y: auto;
+    padding: 17px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    background:
+        linear-gradient(
+            rgba(16, 11, 24, 0.72),
+            rgba(16, 11, 24, 0.82)
+        ),
+        url("back.png");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    background-attachment: local;
+
+    scrollbar-width: thin;
+    scrollbar-color: #75446e transparent;
+}
+
+
+/* =================================
+   CHAT MESSAGES
+================================= */
+
+.message {
+    max-width: 86%;
+    padding: 13px 16px;
+
+    border-radius: 18px;
+
+    font-size: 15px;
+    line-height: 1.55;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.bot {
+    background: rgba(56, 36, 66, 0.92);
+
+    align-self: flex-start;
+
+    border: 1px solid #69436f;
+    border-bottom-left-radius: 4px;
+}
+
+.user {
+    background: linear-gradient(
+        135deg,
+        rgba(232, 62, 145, 0.96),
+        rgba(165, 74, 245, 0.96)
+    );
+
+    align-self: flex-end;
+
+    border-bottom-right-radius: 4px;
+}
+
+
+/* =================================
+   TYPING ANIMATION
+================================= */
+
+.typing {
+    padding: 8px 16px;
+
+    color: #e7a8d0;
+    font-size: 13px;
+
+    background: #24182e;
+    flex-shrink: 0;
+}
+
+
+/* =================================
+   INPUT AREA
+================================= */
+
+.input-area {
+    padding: 13px;
+
+    display: flex;
+    gap: 10px;
+
+    background: #24182e;
+    border-top: 1px solid #49304e;
+
+    flex-shrink: 0;
+}
+
+#userInput {
+    flex: 1;
+    min-width: 0;
+
+    padding: 15px;
+
+    background: #382c43;
+    border: 1px solid #64436f;
+    border-radius: 30px;
+
+    color: white;
+    outline: none;
+
+    font-size: 15px;
+}
+
+#userInput::placeholder {
+    color: #c0a9ca;
+}
+
+#userInput:focus {
+    border-color: #ed4b9c;
+    box-shadow: 0 0 8px #ed4b9c55;
+}
+
+#sendBtn {
+    width: 55px;
+    height: 55px;
+
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #ed4b9c;
+    color: white;
+
+    font-size: 23px;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#sendBtn:hover {
+    background: #ff66b0;
+    transform: scale(1.05);
+}
+
+#sendBtn:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+.footer {
+    padding: 12px;
+
+    text-align: center;
+
+    background: #211629;
+    color: #bdaac7;
+
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.clear-btn {
+    background: transparent;
+    color: #e9a9d5;
+
+    border: none;
+    padding: 10px;
+
+    cursor: pointer;
+}
+
+
+/* =================================
+   MOBILE RESPONSIVE
+================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 0;
+        align-items: stretch;
+    }
+
+    .app {
+        width: 100%;
+        max-width: none;
+
+        height: 100dvh;
+        min-height: 0;
+
+        border: none;
+        border-radius: 0;
+    }
+
+    .header {
+        padding: 12px;
+    }
+
+    .avatar {
+        width: 48px;
+        height: 48px;
+    }
+
+    .header h3 {
+        font-size: 17px;
+    }
+
+    #chat {
+        padding: 13px;
+        gap: 12px;
+    }
+
+    .message {
+        max-width: 88%;
+        font-size: 14px;
+        padding: 11px 14px;
+    }
+
+    .input-area {
+        padding: 10px;
+        padding-bottom: max(10px, env(safe-area-inset-bottom));
+    }
+
+    #userInput {
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    #sendBtn {
+        width: 48px;
+        height: 48px;
+    }
+
+    .footer {
+        padding: 8px;
+    }
+}
+
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 360px) {
+
+    .header {
+        padding: 10px;
+    }
+
+    .avatar {
+        width: 43px;
+        height: 43px;
+    }
+
+    .message {
+        max-width: 92%;
+        font-size: 13px;
+    }
+
+    #userInput {
+        padding: 11px;
+    }
+
+    #sendBtn {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+
+/* =================================
+   TABLET AND DESKTOP
+================================= */
+
+@media (min-width: 601px) {
+
+    .app {
+        box-shadow: 0 15px 60px #00000080;
+    }
+
+}
